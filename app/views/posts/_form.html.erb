@@ -17,19 +17,15 @@
   </div>
 
   <div class="field">
-    <%= form.label :string %>
-    <%= form.text_field :string, id: :post_string %>
-  </div>
-
-  <div class="field">
     <%= form.label :content %>
     <%= form.text_field :content, id: :post_content %>
   </div>
 
   <div class="field">
-    <%= form.label :text %>
-    <%= form.text_field :text, id: :post_text %>
+    <%= form.label :img_path %>
+    <%= form.file_field :img_path %>
   </div>
+
 
   <div class="actions">
     <%= form.submit %>

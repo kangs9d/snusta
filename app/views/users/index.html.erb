@@ -1,31 +1,35 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container indexing-user text-center ">
 <h1>Users</h1>
 
-<table>
+<table class = "indexing-user table-bordered">
   <thead>
     <tr>
-      <th>Email</th>
-      <th>Crypted password</th>
-      <th>Salt</th>
-      <th colspan="3"></th>
+      <th class = back>Name</th>
+      <th class = back>Email</th>
+      <th class = back>Crypted password</th>
+      <th class = back>Salt</th>
+      <th colspan="4", class = back></th>
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
-      <tr>
+      <tr><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= user.crypted_password %></td>
-        <td><%= user.salt %></td>
-        <td><%= link_to 'Show', user %></td>&nbsp;&nbsp;
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>&nbsp;&nbsp;
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td style="word-break:break-all;"><%= user.crypted_password %></td>
+        <td style="word-break:break-all;"><%= user.salt %></td>
+        <td><%= link_to 'Show', user, class: 'btn btn-info' %></td>
+        <td><%= link_to 'Edit', edit_user_path(user), class: 'btn btn-warning'%></td>
+        <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'You wanna really delete this shit?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New User', new_user_path %>
+  <%= link_to 'New User', new_user_path, class: 'btn-of-index btn btn-success' %>
+
+<br>
+</div>

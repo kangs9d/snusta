@@ -1,5 +1,21 @@
-<h1>New User</h1>
+<div class="signup container text-center"
+     style="margin-left:auto; margin-right:auto">
 
-<%= render 'form', user: @user %>
+  <div class="table table-bordered signup-inner">
+<h1>JUNASTA</h1>
+  <br />
+      <div class="signup-title">
+        <h6>
+          주나의 사진과 동영상을 보려면 가입하세요
+        </h6>
+      </div>
+    <%= render 'form', user: @user %>
 
-<%= link_to 'Back', users_path %>
+  </div>
+
+
+  <div class="signup-inner-bottom">
+  계정이 이미 있으신가요? <%= link_to '로그인', :login %>
+  </div>
+</div>
+

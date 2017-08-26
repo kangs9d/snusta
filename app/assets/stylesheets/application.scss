@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css";
+@import "posts";
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -12,3 +14,112 @@
  * It is generally better to create a new file per style scope.
  *
  */
+/*
+태그로 적용함*/
+body{
+  height: 100%;
+  background: #fafafa;
+}
+
+.back{
+  background: #f7f7f7;
+}
+
+.signup-field, .signin-field{
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+
+.actions{
+  margin-top: 4%;
+}
+
+.indexing-user{
+  width: 100%;
+}
+
+.frame{
+  padding-bottom: 70px;
+  height: 80%;
+  width: 100%;
+}
+
+.btn-of-index{
+  width: 100%;
+}
+
+.edit{
+  background: #ffffff;
+  width: 380px;
+  margin-top: 20%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.signup{
+  width: 380px;
+  height: 90%;
+  padding-top: 15%;
+}
+
+.signin{
+  width: 380px;
+  height: 90%;
+  padding-top: 15%;
+}
+
+.signup-submit, .signin-submit{
+  width:100%;
+  margin-top: 3%;
+}
+
+
+.signup-inner, .signin-inner{
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff !important;
+  border: #e6e6e6 solid 1px;
+}
+
+.signup-inner-bottom, .signin-inner-bottom{
+  background-color: #ffffff;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  border: #e6e6e6 solid 1px;
+}
+
+#error_explanation {
+  text-align: left;
+  color: #a94442;
+  background-color: #f2d2de;
+  border-color: #ebccd1;
+  padding: 15px;
+  padding-right: 20px;
+  border-radius: 4px;
+}
+
+#error_explanation > h2 {
+  display: none;
+}
+
+.footer {
+  border-top: lightgrey solid 1px;
+  background-color: white;
+  height: 50px;
+  vertical-align: middle;
+}
+
+.camera{
+}
+
+.font_size{
+  font-size: large;
+}
+
+.profile-edit{
+  padding-top: 17px;
+}

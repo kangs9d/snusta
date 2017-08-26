@@ -1,24 +1,4 @@
-<p id="notice"><%= notice %></p>
+<%= render 'post', post: @post %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>String:</strong>
-  <%= @post.string %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @post.text %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary' %>
+<%= link_to 'Destroy', @post, class: 'btn btn-warning', method: :delete, data: { confirm: 'Are you sure?' } %>

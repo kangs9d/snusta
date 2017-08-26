@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :comment]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.order('id desc')
   end
 
   # GET /posts/1
@@ -26,10 +26,11 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to profile_path(current_user.name), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -62,6 +63,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def like
+    @post.like_toggle(current_user)
+    # redirect_back_or_to post_path(@post)
+    render partial: 'like.js.erb', layout: false, locals: {post: @post}
+  end
+
+  def comment
+    contents = params[:comments]
+    @post.add_comment current_user, contents
+    # redirect_back_or_to post_path(@post)
+    render partial: 'comment.js.erb', layout:false, locals: {post: @post}
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_post
@@ -70,6 +84,8 @@ class PostsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
-    params.require(:post).permit(:title, :content, :text)
+    params.require(:post).permit(:title, :content, :img_path)
   end
+
+
 end

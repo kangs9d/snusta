@@ -1,0 +1,26 @@
+<div class = "row justify-content-center">
+  <div class ="col-xs-10 col-sm-10 col-md-8 col-lg-6">
+    <div class = "card">
+      <div class = "card-body">
+        <div class = "card_img_top>">
+          <%= image_tag post.img_path, class: 'card-img-top', style: 'width:100%;height:auto:' %>
+        </div><br>
+        <div class = "card-text">
+          <%= ren der partial: 'like.html.erb', locals: {post: post} %>
+        </div><br>
+        <h4 class = "card-text"> <%= post.title %> </h4>
+        <p class = "card-text"> <%= post.content %> </p>
+        <p class = "card-text"> <small class = "text-muted">
+          <%= "#{time_ago_in_words(post.created_at)} 전" %></small>
+        </p>
+
+        <%= render partial: 'comment.html.erb', locals: {post: post} %>
+
+      <hr>
+      <%= form_tag comment_post_path(post), method: :post, class: 'comment-box', remote: true do %>
+        <%= text_field_tag :comments, nil, class: 'form-control', id: "comment-#{post.id}", placeholder: '덧글 쓰기..' %>
+      <% end %>
+    </div>
+    </div>
+  </div>
+</div>

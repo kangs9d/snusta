@@ -1,5 +1,12 @@
-<h1>Login</h1>
+<div class="container signin text-center" xmlns="http://www.w3.org/1999/html">
+  <div  class="table table-bordered signin-inner">
 
-<%= render 'form' %>
+  <h1>JUNASTA</h1>
+  <br/>
+  <%= render 'form',user: @user %>
+  </div>
 
-<%= link_to 'Back', user_sessions_path %>
+  <div class="signup-inner-bottom">
+    계정이 없나요? <%= link_to '가입하기', new_user_path %>
+  </div>
+</div>

@@ -1,9 +1,21 @@
 Rails.application.routes.draw do
-  root 'users#index'
+  root 'posts#index'
 
-  resources :user_sessions
-  resources :users
-  resources :posts
+  resources :user_sessions, only: [:create, :destroy]
+  resources :users, except: [:show, :index] do
+    member do
+      put :follow
+    end
+  end
+  resources :posts do
+    member do
+      put :like
+      post :comment
+    end
+  end
+
+
+  resources :profiles, only: [:show, :edit, :update], param: :name, constraints: { :name => /[0-z\.]+/}
 
   get 'login' => 'user_sessions#new', as: :login
   delete 'logout' => 'user_sessions#destroy', as: :logout

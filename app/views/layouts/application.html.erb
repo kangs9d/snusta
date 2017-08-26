@@ -1,22 +1,40 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Snusta</title>
+  <title>JUNASTA</title>
   <%= csrf_meta_tags %>
 
-  <%= stylesheet_link_tag    'application', media: 'all'%>
-  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track'=> 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track'=> 'reload' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--부트스트랩 내에서 반응형 툴들을 쓰겠다는 선언임-->
 </head>
 
 <body>
 <%= render 'layouts/header' %>
-
-<div>
-  <p id="notice"><%= flash[:notice] %></p>
-  <p id="alert"><%= flash[:alert] %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <% flash.each do |name, msg| %>
+          <% if name=='alert'%>
+              <div class="alert alert-danger" role="alert">
+                <%=msg%>
+              </div>
+          <% else %>
+              <div class="alert alert-info" role="alert">
+                <%=msg%>
+              </div>
+          <% end %>
+      <% end %>
+    </div>
+    <div class="col-12 frame">
+    <%= yield %>
+    </div>
+  </div>
 </div>
-
-<%= yield %>
+<% if logged_in? %>
+  <%= render 'layouts/footer' %>
+<% end %>
 </body>
 </html>
+
