@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem 'mysql2', '~> 0.4.8'
 
 gem 'sorcery', '~> 0.11.0'
