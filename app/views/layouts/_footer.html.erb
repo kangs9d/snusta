@@ -1,0 +1,41 @@
+<style>
+  .footer div > a{
+    color: black;
+    height: 100%;
+    width: 100%;
+  }
+
+</style>
+
+
+
+<div class="footer fixed-bottom text-center">
+  <div class = "row">
+    <div class="col">
+      <a href="<%=root_path%>">
+        <i class="fa fa-home fa-3x" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="col">
+      <a href="#">
+        <i class="fa fa-search fa-3x" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="col">
+      <a href="<%=new_post_path%>">
+      <i class="fa fa-camera-retro fa-3x camera" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="col">
+      <a href="#">
+        <i class="fa fa-heart fa-3x" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="col">
+      <a href="<%=profile_path(current_user.name)%>">
+        <i class="fa fa-user fa-3x" aria-hidden="true"></i>
+      </a>
+    </div>
+
+  </div>
+</div>
