@@ -42,7 +42,6 @@ end
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'jquery-rails'
 
-gem 'bcrypt'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
